@@ -9,7 +9,7 @@ node {
     // holds reference to docker image
     def dockerImage
  
-    def dockerImageTag = "${dockerhubaccountid}/${application}:${env.BUILD_NUMBER}"
+    def dockerImageTag = "${mydockerhubaccount123}/${application}:${env.1001}"
     
     stage('Clone Repo') { 
       // Get some code from a GitHub repository
@@ -27,13 +27,13 @@ node {
 		
     stage('Build Docker Image with new code') {
       // build docker image
-      dockerImage = docker.build("${dockerhubaccountid}/${application}:${env.BUILD_NUMBER}")
+      dockerImage = docker.build("${mydockerhubaccount123}/${application}:${env.1001}")
     }
 	//push image to remote repository , in your jenkins you have to create the global credentials similar to the 'dockerHub' (credential ID)
     stage('Push Image to Remote Repo'){
 	 echo "Docker Image Tag Name ---> ${dockerImageTag}"
 	     docker.withRegistry('', 'dockerHub') {
-             dockerImage.push("${env.BUILD_NUMBER}")
+             dockerImage.push("${env.1001}")
              dockerImage.push("latest")
             }
 	}
@@ -48,12 +48,12 @@ node {
     stage('Deploy Docker Image with new changes'){
 	        
 	    //start container with the remote image
-	  sh "docker run --name devopsexample -d -p 2222:2222 ${dockerhubaccountid}/${application}:${env.BUILD_NUMBER}"  
+	  sh "docker run --name devopsexample -d -p 2222:2222 ${mydockerhubaccount123}/${application}:${env.1001}"  
 	  
     }
 	
     stage('Remove old images') {
 		// remove docker old images
-		sh("docker rmi ${dockerhubaccountid}/${application}:latest -f")
+		sh("docker rmi ${mydockerhubaccount123}/${application}:latest -f")
    }
 }
