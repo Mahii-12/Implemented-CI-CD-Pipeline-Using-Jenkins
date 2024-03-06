@@ -29,15 +29,15 @@ delivering an efficient and satisfying shopping experience.
 
     Steps:
 
-## Containerize Microservices: 
- > Packaged each microservice and its dependencies into Docker containers using Dockerfiles.
-* Build Container Images:
-> Created container images for each microservice using Docker build commands.
-* Container Orchestration: 
-> Deployed the containerized microservices to a Kubernetes cluster as MiniKube for orchestration.
-* Service Discovery: 
-> Used Kubernetes service objects to enable service discovery and load balancing between microservices.
-* Scalability: 
-> Scaled individual microservices up or down based on demand using Kubernetes scaling features.
-* Continuous Deployment:
-> Implemented a CI/CD pipeline to automate the building, testing, and deployment of containerized microservices.
+> Containerize Microservices: 
+* Packaged each microservice and its dependencies into Docker containers using Dockerfiles.
+> Build Container Images:
+* Created container images for each microservice using Docker build commands.
+> Container Orchestration: 
+* Deployed the containerized microservices to a Kubernetes cluster as MiniKube for orchestration.
+> Service Discovery: 
+* Used Kubernetes service objects to enable service discovery and load balancing between microservices.
+> Scalability: 
+* Scaled individual microservices up or down based on demand using Kubernetes scaling features.
+> Continuous Deployment:
+* Implemented a CI/CD pipeline to automate the building, testing, and deployment of containerized microservices.
